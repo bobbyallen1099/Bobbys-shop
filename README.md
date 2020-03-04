@@ -1,0 +1,1 @@
+<p align="center">Bobby's first shop application using Laravel</p>
