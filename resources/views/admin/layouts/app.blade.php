@@ -29,12 +29,12 @@
                 </div>
                 <ul>
                     @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}"><i class="fas fa-fw fa-sign-in-alt"></i> <span>{{ __('Login') }}</span></a>
+                        <li>
+                            <a href="{{ route('login') }}"><i class="fas fa-fw fa-sign-in-alt"></i> <span>{{ __('Login') }}</span></a>
                         </li>
                         @if (Route::has('register'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}"><i class="fas fa-user-plus"></i> <span>{{ __('Register') }}</span></a>
+                            <li>
+                                <a href="{{ route('register') }}"><i class="fas fa-user-plus"></i> <span>{{ __('Register') }}</span></a>
                             </li>
                         @endif
                     @else
@@ -54,13 +54,16 @@
                     @endguest
                 </ul>
             </nav>
-            <div class="current-profile">
-                <span>{{ Auth::user()->name }}</span>
-                <i class="fas fa-sign-out-alt" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"></i>
-            </div>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
+            @guest
+            @else
+                <div class="current-profile">
+                    <span>{{ Auth::user()->name }}</span>
+                    <i class="fas fa-sign-out-alt" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"></i>
+                </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            @endguest
         </aside>
         <main id="content">
             @yield('breadcrumb')
