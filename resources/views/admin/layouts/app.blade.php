@@ -43,7 +43,7 @@
                         <a href="{{ route('admin') }}"><i class="fas fa-fw fa-home"></i> <span>Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="#"><i class="fas fa-fw fa-shopping-cart"></i> <span>Products</span></a>
+                        <a href="{{ route('admin.products.index') }}"><i class="fas fa-fw fa-shopping-cart"></i> <span>Products</span></a>
                     </li>
                     <li>
                         <a href="{{ route('admin.users.show', Auth::user())}}"><i class="fas fa-fw fa-user"></i> <span>Profile</span></a>
@@ -69,6 +69,7 @@
             @yield('breadcrumb')
             @yield('content')
         </main>
-      </div>
+    </div>
+    @yield('scripts')
 </body>
 </html>

@@ -5,18 +5,29 @@ $label-color: rgba($black, 0.6);
 .form-group {
   position: relative;
   
-  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, .nice-select, textarea {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), select, .nice-select, textarea, .select2-selection {
     border: 0.05rem solid $border-color;
     padding: 1rem;
     display: block;
     width: 100%;
-    height: 50px;
+    min-height: 50px;
     border-radius: 5px;
     margin: 0.6rem 0;
     transition: border-color 0.15s ease;
     appearance: none;
     background-color: transparent;
     font-size: 1rem;
+  }
+  .select2-selection {
+    margin: 0;
+
+    &__arrow {
+      width: 50px !important;
+      height: 50px !important;
+    }
+    &__rendered {
+      line-height: 1 !important;
+    }
   }
   &:not(.radio):not(.checkbox):not(.range) {
     label:not(.checkbox-wrapper) {
@@ -29,9 +40,16 @@ $label-color: rgba($black, 0.6);
       color: $label-color;
       line-height: 1;
       margin: 0;
+      z-index: 10;
     }
   }
-  
+  &.icon {
+    .select2 {
+      &-selection {
+        padding-left: 2.5rem !important;  
+      }
+    }
+  }
   .icon-append {
     position: absolute;
     top: 25px;
@@ -40,7 +58,7 @@ $label-color: rgba($black, 0.6);
     color: $label-color;
     font-size: 18px;
     
-    + input:not([type="checkbox"]):not([type="radio"]):not([type="range"]) {
+    + input:not([type="checkbox"]):not([type="radio"]):not([type="range"]), .select2, .select2-selection__rendered {
       padding-left: 2.5rem;
       
     }

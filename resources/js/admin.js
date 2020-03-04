@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('select2');
 
 window.Vue = require('vue');
 
@@ -11,6 +12,10 @@ const app = new Vue({
 
 
 $(function(){
+    $('.select2').select2({
+        tags: true
+    });
+    
     $('.toggle-menu').on('click', function(){
         $("#menu").toggleClass('closed');
 

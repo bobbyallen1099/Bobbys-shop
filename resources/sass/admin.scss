@@ -4,9 +4,13 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
+// Vendors
 @import '~bootstrap/scss/bootstrap';
+@import '~select2/src/scss/core.scss';
+
 @import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css';
+
+
 @import 'components/components';
 
 

@@ -1,15 +1,13 @@
 @extends('admin.layouts.app')
 
 @section('content')
-
-<h1>{{ __('Login') }}</h1>
-
 <div>
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
-        <div class="row mt-4">
-            <div class="col-lg-6">
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="mb-4">{{ __('Login') }}</h1>
                 <div class="form-group">
                     <label for="email">{{ __('E-Mail Address') }}</label>
                     <i class="icon-append fas fa-envelope"></i>
