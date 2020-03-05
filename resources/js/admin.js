@@ -1,5 +1,6 @@
 require('./bootstrap');
 require('select2');
+require('dropzone');
 
 window.Vue = require('vue');
 
