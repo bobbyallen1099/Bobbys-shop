@@ -50,6 +50,9 @@ class AdminProductsController
             'draft' => ['nullable'],
         ]);
 
+        $category_id = ProductCategory::firstOrCreate([
+            'name' => $request->category
+        ]);
 
         $product = Product::create();
         $product->title = $request->title;
@@ -58,6 +61,8 @@ class AdminProductsController
         $product->start_date = $request->start_date;
         $product->end_date = $request->end_date;
         $product->live = $request->draft != null ? 0 : 1;
+    
+        $product->category_id = $category_id->id;
         $product->save();
 
         return redirect(route('admin.products.images', $product));
@@ -70,6 +75,7 @@ class AdminProductsController
      */
     public function images(Product $product){
         $images = ProductImage::where('product_id', $product->id)->get();
+
         return view('admin.products.images', compact('product', 'images'));
     }
 

@@ -13,14 +13,17 @@
 @section('content')
     <div class="row">
         <div class="col-md-8">
-            <h6>£{{ $product->price }}</h6>
-            <h2>{{ $product->title }}</h2>
-            <br>
+            <h6><span class="badge badge-primary">{{ $product->category->name }}</span></h6>
+            <div class="d-flex align-items-center justify-content-between">
+                <h2>{{ $product->title }}</h2>
+                <h6>£{{ $product->price }}</h6>
+            </div>
+            <hr>
             <blockquote class="blockquote">{{ $product->description }}</blockquote>
         </div>
         <div class="col-md-4">
             <div class="card card-body white p-3">
-                <h2>Images</h2>
+                <h2>Product images</h2>
                 <div class="row m-0">
                     @if (!$images->isEmpty())
                         @foreach ($images as $image)
