@@ -51,41 +51,30 @@
             </div>
             <br>
             <div class="card card-body white p-3">
-                <h2>Product visibility</h2>
-                <form method="POST" action="{{ route('admin.products.update', $product) }}">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="start_date">
-                                    Start date
-                                </label>
-                                <i class="far fa-calendar-alt icon-append"></i>
-                                <input value="{{ $product->start_date }}" name="start_date" id="start_date" type="date" class="form-control @error('start_date') is-invalid @enderror">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="end_date">
-                                    End date
-                                </label>
-                                <i class="far fa-calendar-alt icon-append"></i>
-                                <input value="{{ $product->end_date }}" name="end_date" id="end_date" type="date" class="form-control @error('end_date') is-invalid @enderror">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label class="checkbox-wrapper">
-                                    <input type="checkbox" name="draft" id="draft" @if ($product->live != 1) checked @endif>
-                                    <span>Draft mode</span>
-                                </label>
-                                <div class="hint text-muted">When ticked this will only be shown within admin.</div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary">Update</button>
-                        </div>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h2 class="m-0">Product visibility</h2>
+                    <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-primary">Edit</a>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="text-muted">Start Date</div>
+                        <div>{{ $product->start_date }}</div>
                     </div>
-                </form>
+                    <div class="col-6">
+                        <div class="text-muted">End Date</div>
+                        <div>{{ $product->end_date }}</div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-6">
+                        <div class="text-muted">Draft mode</div>
+                        <div>@if ($product->live != 1) On @else Off @endif</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="text-muted">Live now</div>
+                        <div><div class="circle mr-2 {{ check_if_product_is_live($product->id) ? "success" : "danger" }}"></div></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

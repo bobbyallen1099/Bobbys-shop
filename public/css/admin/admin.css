@@ -12073,13 +12073,13 @@ a.text-dark:focus {
 }
 
 .form-group.icon .select2-selection {
-  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important;
 }
 
 .form-group .icon-append {
   position: absolute;
   top: 25px;
-  left: 1rem;
+  right: 1rem;
   transform: translateY(-50%);
   color: rgba(0, 0, 0, 0.6);
   font-size: 18px;
@@ -12088,7 +12088,7 @@ a.text-dark:focus {
 .form-group .icon-append + input:not([type=checkbox]):not([type=radio]):not([type=range]),
 .form-group .icon-append .select2,
 .form-group .icon-append .select2-selection__rendered {
-  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 .nice-select {

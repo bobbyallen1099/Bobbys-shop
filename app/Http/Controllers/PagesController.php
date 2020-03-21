@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
+use App\ProductCategory;
+use App\ProductImage;
+
 class PagesController extends Controller
 {
     /**
@@ -28,15 +32,17 @@ class PagesController extends Controller
      */
     public function products()
     {
-        return view('products');
+        $products = Product::latest()->get();
+
+        return view('products', compact('products'));
     }
 
     /**
      * Show product page
      * @return Response
      */
-    public function product($product)
+    public function product(Product $product)
     {
-        return view('product');
+        return view('product', compact('product'));
     }
 }

@@ -58,7 +58,7 @@
                             <i class="fas fa-tag icon-append"></i>
                             <select value="{{ $product->category->id }}" name="category" id="category" class="select2 form-control @error('category') is-invalid @enderror">
                                 @foreach ($categories as $category)
-                                    <option value="{{$category}}">{{ $category->name }}</option>
+                                    <option value="{{ $category->name }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -50,7 +50,7 @@ class AdminProductsController
             'draft' => ['nullable'],
         ]);
 
-        $category_id = ProductCategory::firstOrCreate([
+        $category = ProductCategory::firstOrCreate([
             'name' => $request->category
         ]);
 
@@ -62,7 +62,7 @@ class AdminProductsController
         $product->end_date = $request->end_date;
         $product->live = $request->draft != null ? 0 : 1;
     
-        $product->category_id = $category_id->id;
+        $product->category_id = $category->id;
         $product->save();
 
         return redirect(route('admin.products.images', $product));
@@ -152,7 +152,7 @@ class AdminProductsController
         ]);
 
 
-        $category_id = ProductCategory::firstOrCreate([
+        $category = ProductCategory::firstOrCreate([
             'name' => $request->category
         ]);
 
@@ -162,8 +162,8 @@ class AdminProductsController
         $product->start_date = $request->start_date;
         $product->end_date = $request->end_date;
         $product->live = $request->draft != null ? 0 : 1;
-    
-        $product->category_id = $category_id->id;
+            
+        $product->category_id = $category->id;
         $product->save();
 
         return redirect(route('admin.products.show', $product));
