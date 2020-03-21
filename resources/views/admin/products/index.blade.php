@@ -31,7 +31,6 @@
                 <tr>
                     <th class="border-top-0">Product</th>
                     <th class="border-top-0">Price</th>
-                    <th class="border-top-0">Live</th>
                     <th class="border-top-0" width="150">Actions</th>
                 </tr>
             </thead>
@@ -39,15 +38,15 @@
                 @foreach ($products as $product)
                     <tr>
                         <td>
-                            <a href="{{ route('admin.products.show', $product) }}">
-                                {{ $product->title }}
-                            </a>
+                            <div class="d-flex align-items-center">
+                                <div class="circle mr-2 {{ check_if_product_is_live($product->id) ? "success" : "danger" }}"></div>
+                                <a href="{{ route('admin.products.show', $product) }}">
+                                    {{ $product->title }}
+                                </a>
+                            </div>
                         </td>
                         <td>
                             £{{ $product->price }}
-                        </td>
-                        <td>
-                            <div class="circle success"></div>
                         </td>
                         <td>
                             <div class="d-flex justify-content-between">

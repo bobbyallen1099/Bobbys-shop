@@ -129,7 +129,10 @@ class AdminProductsController
      * @param Product $product
      * @return Response
      */
-    public function edit(){}
+    public function edit(Product $product){
+        $categories = ProductCategory::latest()->get();
+        return view('admin.products.edit', compact('product', 'categories'));
+    }
 
     /**
      * Update product
@@ -137,7 +140,34 @@ class AdminProductsController
      * @param Request $request
      * @return Redirect
      */
-    public function update(){}
+    public function update(Request $request, Product $product){
+        $validatedData = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'price' => ['required', 'numeric'],
+            'category' => ['nullable', 'string'],
+            'start_date' => ['nullable', 'date'],
+            'end_date' => ['nullable', 'date'],
+            'draft' => ['nullable'],
+        ]);
+
+
+        $category_id = ProductCategory::firstOrCreate([
+            'name' => $request->category
+        ]);
+
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->price = $request->price;
+        $product->start_date = $request->start_date;
+        $product->end_date = $request->end_date;
+        $product->live = $request->draft != null ? 0 : 1;
+    
+        $product->category_id = $category_id->id;
+        $product->save();
+
+        return redirect(route('admin.products.show', $product));
+    }
 
     /**
      * Show confirm delete page
