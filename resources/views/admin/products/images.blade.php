@@ -25,9 +25,9 @@
             <a href="javascript:void(0)" onClick="window.location.reload();" class="btn btn-primary">Reload images</a>
         </div>
     </div>
-    @if (!$images->isEmpty())
+    @if (!$product->images->isEmpty())
         <div class="row">
-            @foreach ($images as $image)
+            @foreach ($product->images as $image)
                 <div class="col-md-3 p-2">
                     <div class="image-thumbnail" style="background-image: url('/shop/images/{{ $product->id}}/{{ $image->file_name }}');">
                         <div class="text-right">

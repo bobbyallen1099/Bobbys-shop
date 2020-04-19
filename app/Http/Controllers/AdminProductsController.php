@@ -74,9 +74,7 @@ class AdminProductsController
      * @return Response
      */
     public function images(Product $product){
-        $images = ProductImage::where('product_id', $product->id)->get();
-
-        return view('admin.products.images', compact('product', 'images'));
+        return view('admin.products.images', compact('product'));
     }
 
     /**
@@ -120,8 +118,7 @@ class AdminProductsController
      */
     public function show(Product $product)
     {
-        $images = ProductImage::where('product_id', $product->id)->get();
-        return view('admin.products.show', compact('product', 'images'));
+        return view('admin.products.show', compact('product'));
     }
 
     /**

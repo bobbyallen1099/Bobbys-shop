@@ -1,0 +1,9 @@
+.banner {
+    padding: 10rem 0;
+    background: $red;
+    background: $gradient-1;
+
+    &__content {
+        color: $white;
+    }
+}

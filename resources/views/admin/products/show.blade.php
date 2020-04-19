@@ -31,8 +31,8 @@
             <div class="card card-body white p-3">
                 <h2>Product images</h2>
                 <div class="row m-0">
-                    @if (!$images->isEmpty())
-                        @foreach ($images as $image)
+                    @if (!$product->images->isEmpty())
+                        @foreach ($product->images as $image)
                             <div class="col-md-4 p-1">
                                 <div class="image-thumbnail" style="background-image: url('/shop/images/{{ $product->id}}/{{ $image->file_name }}');"></div>
                             </div>

@@ -14,7 +14,9 @@ class PagesController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $products = Product::latest()->limit(8)->get();
+
+        return view('index', compact('products'));
     }
 
     /**

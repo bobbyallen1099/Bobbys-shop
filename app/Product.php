@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\ProductCategory;
+use App\ProductImage;
 
 class Product extends Model
 {
@@ -17,5 +18,10 @@ class Product extends Model
     public function category()
     {
         return $this->hasOne(ProductCategory::class, 'id', 'category_id');
+    }
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id', 'id');
     }
 }
