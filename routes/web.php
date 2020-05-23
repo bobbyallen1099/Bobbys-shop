@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 // Pages
 Route::get('/', 'PagesController@index')->name('pages.home');
-Route::get('/about', 'PagesController@about')->name('pages.aboutus');
 Route::get('/products', 'PagesController@products')->name('pages.products');
 Route::get('/products/{product}', 'PagesController@product')->name('pages.products.product');
+Route::get('/basket', 'PagesController@basket')->name('pages.basket');
 
 // Auth
 Auth::routes();

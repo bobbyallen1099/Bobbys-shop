@@ -1,0 +1,43 @@
+.footer {
+    background-color: $white;
+    border-top: 1px solid $gray-300;
+
+    &__content {
+        padding: 5rem 0;
+    }
+    &__copyright {
+        padding: 1rem 0;
+        background-color: $primary;
+        color: $white;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    ul {
+        list-style: none;
+        margin-top: 1rem;
+        padding: 0;
+        display: flex;
+
+        li {
+            padding-right: 1rem;
+        }
+    }
+    .useful-links {
+        a {
+            padding: 0.5rem;
+            font-size: 1.5rem;
+
+            &:first-of-type {
+                padding-left: 0;
+                margin-left: 0;
+            }
+            &:last-of-type {
+                padding-right: 0;
+                margin-right: 0;
+            }
+        }
+    }
+}

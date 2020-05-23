@@ -1,11 +1,14 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// Fontawesome (not added in project due to legal reasons for pro version)
+@import 'font-awesome/fontawesome';
+
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Pages
-@import 'pages/pages';
+// Fontend
+@import 'front_end/front_end';

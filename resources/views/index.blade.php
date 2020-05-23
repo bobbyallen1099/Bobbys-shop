@@ -16,9 +16,10 @@
 
     <div class="products">
         <div class="container">
+            <h3 class="text-primary">Our featured items</h3>
             <div class="row">
-                <div class="col-md-3">
-                    @foreach ($products as $product)
+                @foreach ($products as $product)
+                    <div class="col-md-3 p-2">
                         <a href="{{ route('pages.products.product', $product) }}" class="product-thumbnail">
                             <div class="product-thumbnail__image"  style="background-image: url('/shop/images/{{ $product->id}}/{{ $product->images->first()->file_name }}');">
                                 <div class="btn btn-primary product-thumbnail__button">View item</div>
@@ -29,8 +30,8 @@
                                 <div class="product-thumbnail__content--price">£{{ $product->price }}</div>
                             </div>
                         </a>
-                    @endforeach
-                </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

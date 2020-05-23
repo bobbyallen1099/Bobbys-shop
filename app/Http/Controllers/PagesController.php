@@ -19,14 +19,6 @@ class PagesController extends Controller
         return view('index', compact('products'));
     }
 
-    /**
-     * Show about page
-     * @return Response
-     */
-    public function about()
-    {
-        return view('about');
-    }
 
     /**
      * Show products page
@@ -46,5 +38,15 @@ class PagesController extends Controller
     public function product(Product $product)
     {
         return view('product', compact('product'));
+    }
+
+
+    /**
+     * Show basket page
+     * @return Response
+     */
+    public function basket()
+    {
+        return view('basket');
     }
 }

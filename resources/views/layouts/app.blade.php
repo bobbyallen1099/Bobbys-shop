@@ -21,9 +21,12 @@
 </head>
 <body>
     <div id="app">
+        @include('layouts.header')
         <main id="content">
             @yield('content')
         </main>
+        @include('layouts.footer')
     </div>
+    <script src="js/fe/app.js"></script>
 </body>
 </html>

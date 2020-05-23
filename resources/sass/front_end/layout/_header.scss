@@ -1,0 +1,71 @@
+.header {
+    $this: &;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: $white;
+    }
+    &__brand {
+        margin: 0;
+        color: $white;
+
+        @extend .h4;
+    }
+    &__links {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+    &__link {
+        padding: 1.5rem 1rem;
+        color: $white;
+        position: relative;
+
+        &.icon {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: $primary;
+            border-radius: 100px;
+            padding: 0;
+            background-color: mix($primary, $white, 10%);
+            margin: 0 0.25rem;
+        }
+
+        &:last-of-type {
+            padding-right: 0;
+            margin-right: 0;
+        }
+    }
+
+    &__cart-number {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 0.8rem;
+        border-radius: 100px;
+        background-color: $primary;
+        color: $white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(25%, -25%);
+    }
+
+    &.active {
+        background-color: $white;
+        box-shadow: 0 2px 6px rgba($black, 0.4);
+
+        #{$this}__brand, #{$this}__wrapper, #{$this}__link:not(.icon) {
+            color: $black;
+        }
+    }
+}
