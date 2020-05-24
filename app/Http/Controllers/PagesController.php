@@ -37,7 +37,11 @@ class PagesController extends Controller
      */
     public function product(Product $product)
     {
-        return view('product', compact('product'));
+        if(check_if_product_is_live($product)) {
+            return view('product', compact('product'));
+        } else {
+            return view('404');
+        }
     }
 
 

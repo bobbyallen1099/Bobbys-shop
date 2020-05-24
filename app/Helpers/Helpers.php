@@ -1,9 +1,10 @@
 <?php
-if (! function_exists('check_if_product_is_live')) {
-    function check_if_product_is_live($product_id) {
-        // ...
-        $product = \App\Product::where('id', $product_id)->first();
 
+use App\Product;
+
+
+if (! function_exists('check_if_product_is_live')) {
+    function check_if_product_is_live(Product $product) {
         // If draft mode is turned off
         if($product->live == 1) {
 

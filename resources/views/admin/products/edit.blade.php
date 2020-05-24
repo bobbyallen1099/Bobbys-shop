@@ -94,6 +94,7 @@
             </div>
         </div>
         <button class="btn btn-primary">Update product</button>
+        <a href="{{ route('admin.products.images', $product) }}" class="btn btn-default">Edit Images</a>
     </form>
 @endsection
 

@@ -39,7 +39,7 @@
                     <tr>
                         <td>
                             <div class="d-flex align-items-center">
-                                <div class="circle mr-2 {{ check_if_product_is_live($product->id) ? "success" : "danger" }}"></div>
+                                <div class="circle mr-2 {{ check_if_product_is_live($product) ? "success" : "danger" }}"></div>
                                 <a href="{{ route('admin.products.show', $product) }}">
                                     {{ $product->title }}
                                 </a>

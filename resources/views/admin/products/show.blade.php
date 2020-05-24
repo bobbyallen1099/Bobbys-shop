@@ -44,7 +44,7 @@
                     @endif
                     <div class="col-12 py-1 px-1">
                         <a href="{{ route('admin.products.images', $product) }}" class="btn btn-primary btn-block">
-                            Add images
+                            Edit images
                         </a>
                     </div>
                 </div>
@@ -58,11 +58,15 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="text-muted">Start Date</div>
-                        <div>{{ $product->start_date }}</div>
+                        <div>
+                            {{ $product->start_date? $product->start_date : "No start date"}}
+                        </div>
                     </div>
                     <div class="col-6">
                         <div class="text-muted">End Date</div>
-                        <div>{{ $product->end_date }}</div>
+                        <div>
+                            {{ $product->end_date? $product->end_date : "No end date" }}
+                        </div>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -72,7 +76,7 @@
                     </div>
                     <div class="col-6">
                         <div class="text-muted">Live now</div>
-                        <div><div class="circle mr-2 {{ check_if_product_is_live($product->id) ? "success" : "danger" }}"></div></div>
+                        <div><div class="circle mr-2 {{ check_if_product_is_live($product) ? "success" : "danger" }}"></div></div>
                     </div>
                 </div>
             </div>
