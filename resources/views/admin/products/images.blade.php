@@ -26,9 +26,9 @@
         </div>
     </div>
     @if (!$product->images->isEmpty())
-        <div class="row">
+        <div data-product-id="{{ $product->id }}" id="sortable" class="row">
             @foreach ($product->images as $image)
-                <div class="col-md-3 p-2">
+            <div data-image-id="{{ $image->id }}" data-order="{{ $image->order }}" class="image col-md-3 p-2">
                     <div class="image-thumbnail" style="background-image: url('/shop/images/{{ $product->id}}/{{ $image->file_name }}');">
                         <div class="text-right">
                             <form method="POST" action="{{ route('admin.products.deleteimage', [$product, $image]) }}">

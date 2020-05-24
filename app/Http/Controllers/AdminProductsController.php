@@ -61,7 +61,7 @@ class AdminProductsController
         $product->start_date = $request->start_date;
         $product->end_date = $request->end_date;
         $product->live = $request->draft != null ? 0 : 1;
-    
+
         $product->category_id = $category->id;
         $product->save();
 
@@ -83,22 +83,44 @@ class AdminProductsController
      * @return Response
      */
     public function storeimages(Request $request, Product $product ){
+
         if(!empty($request->files)) {
             foreach ($request->files as $file)
             {
+
+                $current_index = count($product->images);
+
                 $imageName = $file->getClientOriginalName();
 
                 $file->move(public_path('shop/images/'.$product->id),$imageName);
-                
+
                 $imageUpload = new ProductImage();
                 $imageUpload->file_name = $imageName;
                 $imageUpload->product_id = $product->id;
+                $imageUpload->order = $current_index + 1;
                 $imageUpload->save();
 
                 return response()->json(['success'=>$imageName]);
             }
         }
     }
+
+    /**
+     * Update image order
+     * @param Product $product
+     * @param request $request
+     * @return Response
+     */
+    public function updateimagesorder(Product $product, request $request){
+        foreach($request->items as $image => $order)
+        {
+            $product_image = ProductImage::find($image);
+
+            $product_image->order = $order;
+            $product_image->save();
+        }
+    }
+
 
     /**
      * Delete image
@@ -159,7 +181,7 @@ class AdminProductsController
         $product->start_date = $request->start_date;
         $product->end_date = $request->end_date;
         $product->live = $request->draft != null ? 0 : 1;
-            
+
         $product->category_id = $category->id;
         $product->save();
 

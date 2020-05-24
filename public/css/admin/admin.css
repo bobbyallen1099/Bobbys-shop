@@ -12457,6 +12457,30 @@ a.text-dark:focus {
   border: 1px solid #e9ecef;
 }
 
+#sortable .image:first-of-type:before {
+  content: "\F005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1.25rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: #fff;
+  color: #3490dc;
+  border-radius: 100px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
 .circle {
   display: block;
   width: 10px;

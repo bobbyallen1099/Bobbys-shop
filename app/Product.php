@@ -8,7 +8,7 @@ use App\ProductImage;
 
 class Product extends Model
 {
-    protected $fillable = ['title','description','start_date','end_date','live']; 
+    protected $fillable = ['title','description','start_date','end_date','live'];
 
 
     /**
@@ -22,6 +22,6 @@ class Product extends Model
 
     public function images()
     {
-        return $this->hasMany(ProductImage::class, 'product_id', 'id');
+        return $this->hasMany(ProductImage::class, 'product_id', 'id')->orderBy('product_images.order', 'asc');
     }
 }

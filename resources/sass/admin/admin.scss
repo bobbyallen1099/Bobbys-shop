@@ -29,8 +29,8 @@
             border: 0;
         }
     }
-    
-    
+
+
     #menu {
         min-width: 300px;
         width: 300px;
@@ -52,7 +52,7 @@
             visibility: visible;
             transition: all 0.2s ease;
         }
-      
+
         .toggle-menu {
             font-size: 1.15rem;
             margin-bottom: 0.5rem;
@@ -63,9 +63,9 @@
             list-style: none;
             margin: 0;
             padding: 0;
-        
+
             li {
-                padding: 0.7rem 0;   
+                padding: 0.7rem 0;
                 font-size: 1.15rem;
                 max-height: 50px;
             }
@@ -87,7 +87,7 @@
         &.closed {
             min-width: 58px;
             width: 58px;
-            
+
             ul li  a span {
                 opacity: 0;
                 visibility: hidden;
@@ -104,7 +104,7 @@
         background-color: $white;
         box-shadow: 0 -3px 15px rgba($black,0.05);
         border-left: 1px solid $gray-300;
-      
+
         .page-title {
             margin-bottom: 1.5rem;
         }
@@ -123,12 +123,38 @@
     border: 1px solid $gray-200;
 }
 
+#sortable .image:first-of-type {
+    &:before {
+        content: "\f005";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 1.25rem;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        display: inline-block;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        background-color: $white;
+        color: $primary;
+        border-radius: 100px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        box-shadow: 0 2px 5px rgba($black, 0.3);
+    }
+}
+
 .circle {
     display: block;
     width: 10px;
     height: 10px;
     border-radius: 100%;
-    
+
     &.success {
         background-color: $success;
     }

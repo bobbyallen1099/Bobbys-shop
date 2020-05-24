@@ -31,6 +31,7 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('file_name');
             $table->integer('product_id');
+            $table->integer('order');
             $table->timestamps();
         });
 

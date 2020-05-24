@@ -25,6 +25,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/{product}', 'AdminProductsController@show')->name('show');
         Route::get('/{product}/images', 'AdminProductsController@images')->name('images');
         Route::post('/{product}/images', 'AdminProductsController@storeimages')->name('storeimages');
+        Route::post('/{product}/images/updateorder', 'AdminProductsController@updateimagesorder')->name('updateimagesorder');
         Route::post('/{product}/images/{image}/delete', 'AdminProductsController@deleteimage')->name('deleteimage');
         Route::get('/{product}/edit', 'AdminProductsController@edit')->name('edit');
         Route::post('/{product}/edit', 'AdminProductsController@update')->name('update');
