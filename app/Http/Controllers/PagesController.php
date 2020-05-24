@@ -14,7 +14,7 @@ class PagesController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->limit(8)->get();
+        $products = Product::latest()->isLive()->limit(8)->get();
 
         return view('index', compact('products'));
     }
@@ -26,7 +26,7 @@ class PagesController extends Controller
      */
     public function products()
     {
-        $products = Product::latest()->get();
+        $products = Product::latest()->isLive()->get();
 
         return view('products', compact('products'));
     }

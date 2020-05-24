@@ -17,11 +17,11 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->double('price', 8, 2);
-            $table->boolean('live');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->boolean('live')->default(false);
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
             $table->integer('category_id');
             $table->timestamps();
         });
